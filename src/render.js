@@ -5,6 +5,7 @@ const RenderPosition = {
   AFTEREND: 'afterend',
 };
 
+//Вспомогательная функция для превращения строки c HTML в DOM-элемент
 const createElement = (template) => {
   const newElement = document.createElement('div');
   newElement.innerHTML = template;
