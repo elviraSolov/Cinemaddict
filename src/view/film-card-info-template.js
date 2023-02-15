@@ -1,15 +1,29 @@
-const createFilmCardInfoTemplate = `
-  <a class="film-card__link">
-    <h3 class="film-card__title">The Great Flamarion</h3>
-    <p class="film-card__rating">8.9</p>
-    <p class="film-card__info">
-      <span class="film-card__year">1945</span>
-      <span class="film-card__duration">1h 18m</span>
-      <span class="film-card__genre">Mystery</span>
-    </p>
-      <img src="./images/posters/the-great-flamarion.jpg" alt="" class="film-card__poster">
-    <p class="film-card__description">The film opens following a murder at a cabaret in Mexico City in 1936, and then presents the events leading up to it in flashback. The Grea…</p>
-    <span class="film-card__comments">12 comments</span>
-  </a>`;
+export const createFilmCardInfoTemplate = (filmInfo, componentsLength) => {
+  const {
+    title,
+    totalRating,
+    release,
+    runtime,
+    genre,
+    poster,
+    description,
+  } = filmInfo;
 
-export {createFilmCardInfoTemplate}
+  return `
+  <a class="film-card__link">
+    <h3 class="film-card__title">${title}</h3>
+    <p class="film-card__rating">${totalRating}</p>
+    <p class="film-card__info">
+      <span class="film-card__year">${release.date}</span>
+      <span class="film-card__duration">${runtime}</span>
+      <span class="film-card__genre">${genre[0]}</span>
+    </p>
+      <img src="${poster}" alt="" class="film-card__poster">
+    <p class="film-card__description">
+      ${description}
+    </p>
+    <span class="film-card__comments">
+      ${componentsLength} comments
+    </span>
+  </a>`
+};
